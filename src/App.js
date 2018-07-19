@@ -4,8 +4,9 @@
 */
 
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
 import Web3 from "web3";
+import './App.css';
 
 if (window.web3) {
   var myWeb3 = new Web3(window.web3.currentProvider);
@@ -54,7 +55,7 @@ class App extends Component {
     myWeb3.eth.sendTransaction(
       {
         from: this.state.account,
-        to: 0x065992b98a185e8174b1246ca7e16e4c9141af97,
+        to: "0x065992b98a185e8174b1246ca7e16e4c9141af97",
         value: 100
       },
       (err, txHash) => {
