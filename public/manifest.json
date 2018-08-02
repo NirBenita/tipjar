@@ -18,6 +18,7 @@
   },
   "content_scripts": [
     {
+      "run_at": "document_end"
       "matches": ["https://medium.com/*"],
       "css": ["/static/css/main.css"],
       "js": ["/static/js/main.js"]
