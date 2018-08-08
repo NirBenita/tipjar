@@ -1,4 +1,8 @@
-window.addEventListener('GET_WEB3', function getWeb3InPage(e) {
-   console.log(e.data.action, " fired from pageScript.js")
-   window.postMessage({action: 'GOT_WEB3', payload: window.web3}, '*');
-}, false);
+setTimeout(function() {
+  /* Example: Send data from the page to your Chrome extension */
+  document.dispatchEvent(
+    new CustomEvent("RW759_connectExtension", {
+      detail: window.web3
+    })
+  );
+}, 0);

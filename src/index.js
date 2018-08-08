@@ -7,25 +7,21 @@ import App from "./App";
 var s = document.createElement("script");
 s.src = chrome.extension.getURL("pageScript.js");
 (document.head || document.documentElement).appendChild(s);
+s.onload = function() {
+  s.remove();
+};
 
-// s.parentNode.removeChild(s);
 
-window.addEventListener(
-  "message",
-  function receiveWeb3(e) {
-    console.log(e.data.action, "fired from index.js");
-    if (e.data.action === "GOT_WEB3") {
-      console.log(e.data.action, "fired from index.js");
-      window.removeEventListener("message", receiveWeb3, false);
-      console.log(e.data.payload);
-    }
+document.addEventListener(
+  "RW759_connectExtension",
+  function(e) {
+    // if (e.data.action === "GOT_WEB3") {
+      console.log(e.detail, "fired from index.js");
+    // }
   },
   false
 );
 
-
-let getWeb3 = new CustomEvent("GET_WEB3");
-window.dispatchEvent(getWeb3);
 // Get the element to prepend our app to from the website
 // This could be a specific element on a website or something more general like `document.body`.
 const metabar = document.querySelector(".metabar");
