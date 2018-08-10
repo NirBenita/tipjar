@@ -11,13 +11,10 @@ s.onload = function() {
   s.remove();
 };
 
-
 document.addEventListener(
   "RW759_connectExtension",
   function(e) {
-    // if (e.data.action === "GOT_WEB3") {
-      console.log(e.detail, "fired from index.js");
-    // }
+    console.log(e.detail, "fired from index.js");
   },
   false
 );
